@@ -1,10 +1,11 @@
 package main
 
 import (
-	run "Practice/code"
-	"fmt"
+	// run "Practice/code"
+	// "fmt"
 	//run2 "Practice/concurrency"
 	"log"
+	leetcode "Practice/Leetcode"
 )
 
 type ListNode struct {
@@ -154,24 +155,25 @@ func main() {
 	// run.Print_list(res)
 	//run2.Go_routines()
 	//run2.Pipeline_pattern()
-	var rows, columns, s int
-	fmt.Scanln(&rows, &columns, &s)
+	// var rows, columns, s int
+	// fmt.Scanln(&rows, &columns, &s)
 
-	// Initialize the 2D slice
-	arr := make([][]int, rows)
-	for i := 0; i < rows; i++ {
-		arr[i] = make([]int, columns) // Initialize each row slice
-	}
+	// // Initialize the 2D slice
+	// arr := make([][]int, rows)
+	// for i := 0; i < rows; i++ {
+	// 	arr[i] = make([]int, columns) // Initialize each row slice
+	// }
 
-	// Read the values into the 2D slice
-	for i := 0; i < rows; i++ {
-		for j := 0; j < columns; j++ {
-			fmt.Scan(&arr[i][j])
-		}
-	}
+	// // Read the values into the 2D slice
+	// for i := 0; i < rows; i++ {
+	// 	for j := 0; j < columns; j++ {
+	// 		fmt.Scan(&arr[i][j])
+	// 	}
+	// }
 
-	// Call the function (assuming it's defined correctly elsewhere)
-	res := run.Circle_avoid_remaining_value_max_add(s, arr)
+	// // Call the function (assuming it's defined correctly elsewhere)
+	// res := run.Circle_avoid_remaining_value_max_add(s, arr)
 
-	fmt.Println("Result:", res)
+	// fmt.Println("Result:", res)
+	leetcode.Leet_1()
 }
