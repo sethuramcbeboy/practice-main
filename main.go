@@ -5,7 +5,8 @@ import (
 	// "fmt"
 	//run2 "Practice/concurrency"
 	"log"
-	leetcode "Practice/Leetcode"
+	//leetcode "Practice/Leetcode"
+	mapcode "Practice/Mapcode"
 )
 
 type ListNode struct {
@@ -175,5 +176,6 @@ func main() {
 	// res := run.Circle_avoid_remaining_value_max_add(s, arr)
 
 	// fmt.Println("Result:", res)
-	leetcode.Leet_1()
+	//leetcode.Leet_1()
+	mapcode.Map_int()
 }
