@@ -4,23 +4,22 @@ import (
 	"fmt"
 )
 
-func RemoveDuplicates(nums []int) int {
+func RemoveDuplicates(nums []int) []int {
 	if len(nums) == 0 {
-		return 0
+		return nil
 	}
-    j:=0
-    for i:=1;i<len(nums);i++{
-        if nums[j]!=nums[i]{
-            nums[j]=nums[i]
-            j++
-        }   
+	j:=0
+	for i:=1;i<len(nums);i++{
+		if nums[i]!=nums[j]{
+			j++
+			nums[j]=nums[i]
+		}
     }
-    return j+1
+    return nums[:j+1]
 }
 
 func Leet_26() {
-	nums := []int{1, 1, 2, 3, 4,4,5,6,7,8}
-	newLength := RemoveDuplicates(nums)
-	res := nums[:newLength]
-	fmt.Println(res) // Expected Output: [1, 2, 3, 4]
+	nums := []int{1,1,2,3,4,4,5,6,7,8}
+	res := RemoveDuplicates(nums)
+	fmt.Println("res = ",res) // Expected Output: [1, 2, 3, 4]
 }
