@@ -3,10 +3,9 @@ package practice
 func Intersection(req1,req2 []int) []int{
 	s,l:=req1,req2
 	m,n,k:=0,0,0
+	m,n=len(l),len(s)
 	if len(s)>len(l){
 		m,n=len(s),len(l)
-	}else{
-		m,n=len(l),len(s)
 	}
 	for i:=0;i<m;i++{
         for j:=0;j<n;j++{
@@ -16,6 +15,5 @@ func Intersection(req1,req2 []int) []int{
 			}
 		}
 	}
-	res:=s[:k]
-	return res
+	return s[:k]
 }

@@ -18,9 +18,5 @@ func IsPalindrome(x int) bool {
             break
         }
     }
-    if v==sum{
-        return true
-    }else{
-        return false
-    }
+    return v==sum
 }

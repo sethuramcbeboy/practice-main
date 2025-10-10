@@ -16,8 +16,7 @@ func Dup_remove(req []int)[]int{
 
 
 func Dup_remove_Single_Slice(req []int)[]int{
-     s:=req
-     index:=0
+     s,index:=req,0
      for i,_:=range s{
          check:=false
 		 for j:=0;j<index;j++{
@@ -31,6 +30,5 @@ func Dup_remove_Single_Slice(req []int)[]int{
 			index++
 		 }
 	 }
-	 res:=s[:index]
-	 return res
+	 return s[:index]
 }

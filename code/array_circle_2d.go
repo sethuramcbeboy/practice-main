@@ -1,9 +1,18 @@
 package practice
 
+/*
+10 20 30 40 
+11 22 33 44
+
+if p = 10 then we need to avoid 20,11,22 circle line value, remaining value we need to find max and return max+p
+*/
+
 func Circle_avoid_remaining_value_max_add(p int,arr [][]int) int{
 	rows:=len(arr)
 	columns:=len(arr[0])
 	r,c:=0,0
+
+	//first finding p values index
 	for i:=0;i<rows;i++{
 		for j:=0;j<columns;j++{
 			if arr[i][j]==p{
@@ -12,6 +21,8 @@ func Circle_avoid_remaining_value_max_add(p int,arr [][]int) int{
 			}
 		}
 	}
+	
+	//finding the max value in array except p value and its adjacent values
 	var max int
 	t:=Get(arr,r,c,rows,columns)
 	for i:=0;i<rows;i++{

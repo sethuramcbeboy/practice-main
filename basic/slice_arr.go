@@ -9,6 +9,5 @@ func Slice_arr_operation(req [10]int) (res []int) {
 	for i := 5; i < len(req); i++ {
 		s = append(s, req[i])
 	}
-	res = s
-	return res
+	return s
 }
