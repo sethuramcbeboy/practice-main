@@ -40,7 +40,7 @@ func Circle_avoid_remaining_value_max_add(p int,arr [][]int) int{
 
 func Get(arr [][]int,r int,c int,rows int,columns int) []int{
 	var t []int		
-	if c-0>0{							//left
+	if c-1 > 0{							//left
 		t=append(t, arr[r][c-1])
 	}
 	t=append(t, arr[r][c])				//current (p)

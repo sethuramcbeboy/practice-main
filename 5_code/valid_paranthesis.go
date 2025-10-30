@@ -48,3 +48,32 @@ func Valid_Paranthesis(s string) bool {
 
 	return len(stack) == 0
 }
+
+//using byte data type 
+// Instead of range in for loop, we need to use index while looping for byte
+// rune will store as unit64 while byte will store ascii character
+
+func Valid_Paranthesis_byte(s string) bool {
+	stack := []byte{}
+	pairs := map[byte]byte{
+		')': '(',
+		']': '[',
+		'}': '{',
+	}
+
+	for i := 0; i < len(s); i++ {
+        char := s[i]
+
+		if char == '(' || char == '[' || char == '{' {     //'' - literals or ascii value it take , "" - string
+			log.Println("====",string(char))
+			stack = append(stack, char)
+		} else if closing, ok := pairs[char]; ok {
+			if len(stack) == 0 || stack[len(stack)-1] != closing {
+				return false
+			}
+			stack = stack[:len(stack)-1]
+		}
+	}
+
+	return len(stack) == 0
+}
