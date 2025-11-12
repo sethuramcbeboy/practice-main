@@ -5,9 +5,11 @@ import (
 	// "fmt"
 	//run2 "Practice/concurrency"
 
-	leetcode "Practice/Leetcode"
+	//leetcode "Practice/Code_all/Leetcode"
 	"log"
 	//mapcode "Practice/Mapcode"
+	//tradelab "Practice/High_Priority_Code/tradelab"
+	"Practice/High_Priority_Code/concurrency"
 )
 
 type ListNode struct {
@@ -177,7 +179,7 @@ func main() {
 	// res := run.Circle_avoid_remaining_value_max_add(s, arr)
 
 	// fmt.Println("Result:", res)
-	leetcode.Leet_1()
+	//leetcode.Leet_1()
 	//mapcode.Map_int()
 	// i := 10
 
@@ -187,4 +189,6 @@ func main() {
 	// default:
 	// 	fmt.Println("not greater")
 	// }
+	//tradelab.Main_using_channe()
+	concurrency.Main_Channel_sync()
 }

@@ -7,14 +7,38 @@
 //	[Camera1] Frame @ 1717938123488`
 //
 // 4. Implement your own thread-safe queue using mutex for the producer-consumer setup
-package main
+
+package tradelab
 
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
 	"sync"
 	"time"
 )
+////////////////////////////////////////////////////////////////
+// simple one
+func cam(a string, ch chan int) {
+	for v := range ch {
+		fmt.Printf("[%s] Frame @ %d \n", a, v)
+	}
+}
+
+func mainM() {
+	ch := make(chan int, 100)
+	for i := 0; i <= 2; i++ {
+		a := "camera" + strconv.Itoa(i)
+		//fmt.Println(a)
+		go cam(a, ch)
+	}
+	for {
+		ch <- int(time.Now().UnixMicro())   // time stamp generating
+		time.Sleep(250 * time.Millisecond)
+	}
+}
+////////////////////////////////////////////////////////////////
+//Advanced one
 
 type Frame struct {
 	id string
@@ -53,7 +77,7 @@ func (q *Queue) Pop() Frame {
 
 func camera(id string, q *Queue) {
 	for {
-		time.Sleep(time.Duration(rand.Intn(100)+100) * time.Millisecond)
+		time.Sleep(time.Duration(rand.Intn(100)+100) * time.Millisecond) // for the time delay of 100 - 200 ms
 		q.Push(Frame{id, time.Now().UnixMilli()})
 	}
 }
