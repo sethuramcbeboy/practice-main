@@ -56,7 +56,7 @@ func Main_wait_group() {
 }
 
 // using channel
-
+////////////////////////////////////////////////
 func Writefunc_chan(ch chan string) {
 	for v := range ch {
 		fmt.Println(v)

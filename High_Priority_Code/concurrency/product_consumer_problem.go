@@ -2,32 +2,41 @@ package concurrency
 
 import (
 	"fmt"
-	"time"
+	"sync"
 )
 
-func producer(ch chan int) {
-	for i := 0; i < 10; i++ {
-		ch <- i
-		fmt.Println("Produced:", i)
-		time.Sleep(time.Second)
+func Producer(ch chan int, ch2 chan int, wg *sync.WaitGroup) {
+	for v := range ch {
+		ch2 <- v * 2
 	}
-	close(ch)
+	close(ch2)
+	wg.Done()
 }
 
-func consumer(ch chan int) {
-	for num := range ch {
-		fmt.Println("Consumed:", num)
-		time.Sleep(2 * time.Second)
+func Consumer(ch2 chan int, wg *sync.WaitGroup) {
+	for v := range ch2 {
+		fmt.Println(v)
 	}
+	wg.Done()
 }
 
 func Gorountinne_channel() {
-	ch := make(chan int)
-	go producer(ch)
-	go consumer(ch)
-	time.Sleep(20 * time.Second)
-}
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	ch := make(chan int, 10)
+	ch2 := make(chan int, 10)
 
+	var wg sync.WaitGroup
+	wg.Add(2)
+	go Producer(ch, ch2, &wg)
+	go Consumer(ch2, &wg)
+
+	for _, v := range a {
+		ch <- v
+	}
+	close(ch)
+
+	wg.Wait()
+}
 
 // Explanation:- first function generate data which is sent to second function using channel
 
