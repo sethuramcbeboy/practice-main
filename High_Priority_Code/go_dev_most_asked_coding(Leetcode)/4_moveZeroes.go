@@ -8,7 +8,7 @@ func moveZeroes(nums []int)  []int{
 	ctr :=0
 	for i:=0;i<len(nums);i++{
 		if nums[i] != 0{
-			nums[ctr],nums[i] = nums[i],nums[ctr]   // Bringing Non zero electemts to the front
+			nums[ctr],nums[i] = nums[i],nums[ctr]   //Bringing Non zero electemts to the front
 			ctr++
 		}
 	}
