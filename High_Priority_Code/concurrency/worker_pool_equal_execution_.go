@@ -1,4 +1,4 @@
-// Instead of using time.sleep for all the worker to get equal number of task we using array of channel([]ch). 
+// Instead of using time.sleep for all the worker to get equal number of task we using array of channel([]ch).
 // ch := make([]chan int,10)
 // for i:=0;i<3;i++{
 // 	ch[i] = make(chan int)
@@ -23,28 +23,28 @@ func Worker(id int, ch chan int, ch2 chan int, wg *sync.WaitGroup) {
 
 func main() {
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	ch := make([]chan int,3)  // creting array channel with size 3 so that 3 channels we can create
+	ch := make([]chan int, 3) // creting array channel with size 3 so that 3 channels we can create
 	ch2 := make(chan int, 10)
 	var wg sync.WaitGroup
 	worker_ctr := 3
-	for i:=0;i<worker_ctr;i++{
-		ch[i] = make(chan int,5)
+	for i := 0; i < worker_ctr; i++ {
+		ch[i] = make(chan int, 5)
 	}
-	
+
 	for i := 0; i <= 2; i++ {
 		wg.Add(1)
-		i := i%3
+		i := i % 3
 		go Worker(i, ch[i], ch2, &wg)
 	}
 
 	for i, v := range a {
-		i = i%worker_ctr
+		i = i % worker_ctr
 		ch[i] <- v
 	}
-	
-	for i:=0;i<=2;i++{
+
+	for i := 0; i <= 2; i++ {
 		close(ch[i])
-	}	
+	}
 
 	go func() {
 		wg.Wait()

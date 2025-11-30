@@ -8,7 +8,7 @@ import (
 
 func worker_func(wg *sync.WaitGroup, id int, job chan int, result chan int) {
 	for v := range job {
-		fmt.Printf("Worker %d doing job %d \n", id,v)
+		fmt.Printf("Worker %d doing job %d \n", id, v)
 		time.Sleep(1 * time.Second)
 		result <- v
 	}
