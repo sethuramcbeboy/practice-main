@@ -75,29 +75,39 @@ func quickSort(a []int) []int {
 🔹 Logic: Divide into halves, sort each, and merge sorted halves.
 🔹 Time: O(n log n), stable sorting.
 */
-func mergeSort(a []int) []int {
-	if len(a) <= 1 {
-		return a
+func mergeSort(arr []int) []int {
+	// Base case: already sorted
+	if len(arr) <= 1 {
+		return arr
 	}
-	mid := len(a) / 2
-	left := mergeSort(a[:mid])
-	right := mergeSort(a[mid:])
+
+	// Step 1: split
+	mid := len(arr) / 2
+	left := mergeSort(arr[:mid])
+	right := mergeSort(arr[mid:])
+
+	// Step 2: merge
 	return merge(left, right)
 }
 
 func merge(left, right []int) []int {
-	res := []int{}
-	i, j := 0, 0
-	for i < len(left) && j < len(right) {
-		if left[i] < right[j] {
-			res = append(res, left[i])
-			i++
+	result := make([]int, 0)
+	// Compare and merge
+	for len(left) > 0 && len(right) > 0 {
+		if left[0] < right[0] {
+			result = append(result, left[0])
+			left = left[1:]
 		} else {
-			res = append(res, right[j])
-			j++
+			result = append(result, right[0])
+			right = right[1:]
 		}
 	}
-	return append(res, append(left[i:], right[j:]...)...)
+
+	// Add remaining elements
+	result = append(result, left...)
+	result = append(result, right...)
+
+	return result
 }
 
 // ---- 🧪 MAIN ----
