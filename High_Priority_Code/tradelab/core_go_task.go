@@ -57,19 +57,14 @@ func Main_wait_group() {
 
 // using channel
 ////////////////////////////////////////////////
-func Writefunc_chan(ch chan string) {
-	for v := range ch {
-		fmt.Println(v)
-	}
+func Print_func(s []string, ch chan bool) {
+	fmt.Println(s)
+	ch <- true
 }
 
-func Main_using_channe() {
-	ch := make(chan string, 10)
-	s := []string{"A", "B", "C", "D"}
-	go Writefunc_chan(ch)
-	for _,v := range s {
-		ch <- v
-	}
-	close(ch)
-	time.Sleep(1 * time.Minute)
+func main_channel() {
+	a := []string{"A", "B", "C", "D"}
+	ch := make(chan bool)
+	go Print_func(a, ch)
+	<-ch
 }
