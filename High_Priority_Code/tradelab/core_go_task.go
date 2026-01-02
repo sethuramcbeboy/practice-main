@@ -55,7 +55,7 @@ func Main_wait_group() {
 	wg.Wait()
 }
 
-// using channel
+// using channel (Very very simple but highly attract interviewer)
 ////////////////////////////////////////////////
 func Print_func(s []string, ch chan bool) {
 	fmt.Println(s)
