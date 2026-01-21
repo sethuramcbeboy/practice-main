@@ -2,24 +2,19 @@ package slidingwindow
 
 import "fmt"
 
-func Sliding_window_dynamic_size_longestSumLEK(nums []int, K int) int {
-	left := 0
-	sum := 0
-	maxLen := 0
-
+func Sliding_window_dynamic_size_longestSumLEK(nums []int, k int) int {
+	left, sum, max := 0, 0, 0
 	for right := 0; right < len(nums); right++ {
 		sum += nums[right]
-
-		for sum > K {
+		for sum > k {
 			sum -= nums[left]
 			left++
 		}
-
-		if right-left+1 > maxLen {
-			maxLen = right - left + 1
+		if right-left+1 > max {
+			max = right - left + 1
 		}
 	}
-	return maxLen
+	return max
 }
 
 func main_dynamic_size() {

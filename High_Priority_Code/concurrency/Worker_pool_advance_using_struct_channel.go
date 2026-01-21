@@ -31,13 +31,11 @@ func main_worker() {
 		go Worker_func(i, ch[i], ch2, &wg)
 	}
 	
-	a := 0
-	for _, v := range s {
-		a %= 3
+	for i, v := range s {
+		a := i%3
 		ch[a] <- v
-		a++
 	}
-	for i := 0; i <= 2; i++ {
+	for i := 0; i < 3; i++ {
 		close(ch[i])
 	}
 	go func() {

@@ -47,10 +47,5 @@ func isAnagram(s string, t string) bool { // high time complexity
 	tarr := strings.Split(t, "")
 	sort.Strings(sarr)
 	sort.Strings(tarr)
-	for i := 0; i < len(sarr); i++ {
-		if sarr[i] != tarr[i] {
-			return false
-		}
-	}
-	return true
+	return strings.Join(sarr,"") == strings.Join(tarr,"")
 }
