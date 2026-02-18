@@ -1,7 +1,7 @@
 package twopointers
 
 import "fmt"
-
+// palindrome means reverse order is same or not
 func Palindrome_check_using_two_pointers(s string) bool {
 	s_rune := []rune(s)
 	j := len(s_rune) - 1
