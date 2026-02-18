@@ -11,7 +11,7 @@ import (
 	//tradelab "Practice/High_Priority_Code/tradelab"
 	"Practice/High_Priority_Code/concurrency"
 )
- 
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
