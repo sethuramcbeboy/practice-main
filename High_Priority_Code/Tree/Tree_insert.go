@@ -8,7 +8,7 @@ type Tree struct {
 	Right *Tree
 }
 
-//Simple tree creation and doing in order, pre order and post order
+// Simple tree creation and doing in order, pre order and post order
 func main() {
 	var root *Tree
 
@@ -20,6 +20,9 @@ func main() {
 	root.Left.Left = &Tree{V: 4}
 	root.Left.Right = &Tree{V: 5}
 
+	root.Right.Left = &Tree{V: 6}
+	root.Right.Right = &Tree{V: 7}
+
 	fmt.Println("Inorder Traversal:")
 	InOrder(root)
 
@@ -28,6 +31,7 @@ func main() {
 
 	fmt.Println("\nPostorder Traversal:")
 	PostOrder(root)
+	fmt.Println("")
 }
 
 func InOrder(root *Tree) {
