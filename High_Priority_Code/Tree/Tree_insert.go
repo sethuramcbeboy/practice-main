@@ -31,7 +31,7 @@ func main() {
 
 	fmt.Println("\nPostorder Traversal:")
 	PostOrder(root)
-	fmt.Println("")
+	fmt.Println("\n")
 }
 
 func InOrder(root *Tree) {
