@@ -19,6 +19,6 @@ func firstUniqChar(s string) int {
 	return -1
 }
 
-func main() {
+func main_() {
 	fmt.Println(firstUniqChar("aabb"))
 }

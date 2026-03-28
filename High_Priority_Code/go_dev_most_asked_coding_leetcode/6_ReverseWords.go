@@ -15,7 +15,7 @@ func reverseWords(s string) string{
 	return strings.Join(sarr," ")
 }
 
-func main() {
+func main3() {
 	s := "  hello world  "
 	fmt.Println(reverseWords(s))
 }

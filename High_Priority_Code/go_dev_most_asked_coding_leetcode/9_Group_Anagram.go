@@ -25,7 +25,7 @@ func Sort_func(s string) string {
 	return strings.Join(a, "")
 }
 
-func main_anagram() {
+func main_anagram_() {
 	strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
 	fmt.Println("Grouped Anagrams:", groupAnagrams(strs))
 }

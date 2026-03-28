@@ -32,7 +32,7 @@ func LongestCommonPrefix(s []string) int {
 	return min
 }
 
-func main() {
+func main4() {
 	s := []string{"flower", "flow", "flight"}
 	prefix := s[0]
 	res := LongestCommonPrefix(s)

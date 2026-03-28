@@ -20,7 +20,7 @@ func lengthOfLongestSubstring(s string) int {
     return maxLen
 }
 
-func main() {
+func main2() {
 	s := "abcabcab"
 	fmt.Println(lengthOfLongestSubstring(s))
 }
