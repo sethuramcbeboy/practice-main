@@ -1,4 +1,4 @@
-package general
+package hr365
 
 import "fmt"
 
