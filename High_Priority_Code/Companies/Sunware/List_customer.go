@@ -21,7 +21,9 @@ type Address struct {
 }
 
 func Getuserapi() (Resp, error) {
-	// ctr := context.WithTimeout(5 * time.Minute)
+	// ctr,cancel := context.WithTimeout(context.Background(), 5 * time.Minute)
+	//defer cancel()
+	
 	// client, err := db.Connect(config.URL)
 	// if err != nil {
 	// 	return nil, err
